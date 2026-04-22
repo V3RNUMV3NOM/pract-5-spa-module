@@ -1,0 +1,344 @@
+/* =========================================
+   Базові налаштування (Mobile-first)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Box Model */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    
+    /* Нові правила для притискання футера */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#app {
+    flex: 1;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Typography & Buttons */
+h1, h2, h3 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.btn-primary {
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+    padding: 12px 24px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.bg-light {
+    background-color: #f9f9f9;
+}
+
+/* =========================================
+   Структурні блоки (Mobile Layout)
+   ========================================= */
+/* Header & Nav (Flexbox) */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Sections */
+.hero {
+    padding: 60px 0;
+}
+
+.features-section {
+    padding: 50px 0;
+}
+
+/* Cards (CSS Grid) - Мобільна версія (1 колонка) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #e0e0e0;
+    margin: 0 auto 15px auto;
+}
+
+.card-large {
+    background-color: #e0e0e0;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    background-color: #fff; /* Робимо фон білим */
+    color: #666;
+    padding: 30px 0;
+    border-top: 1px solid #eaeaea; /* Додаємо легку лінію зверху */
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between; /* Розносимо текст по краях екрана */
+    align-items: center;
+}
+
+footer p {
+    color: #666;
+    margin-bottom: 0; /* Прибираємо зайві відступи знизу */
+}
+
+/* =========================================
+   Media Queries (Адаптивність)
+   ========================================= */
+
+   /* Адаптивність футера для мобільних пристроїв */
+@media (max-width: 768px) {
+    footer .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
+
+/* Планшети (768px - 1024px) */
+@media (min-width: 768px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшеті */
+    }
+}
+
+/* Десктопи (1024px і більше) */
+@media (min-width: 1024px) {
+    .hero {
+        padding: 100px 0;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 30px auto;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки на десктопі */
+    }
+}
+
+/* =========================================
+   Форма та валідація (Додано для ПР4)
+   ========================================= */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #000;
+}
+
+.form-control.input-error {
+    border-color: #d9534f;
+    background-color: #fdf0ef;
+}
+
+.message-box {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.message-box.error {
+    background-color: #fdf0ef;
+    color: #d9534f;
+    border: 1px solid #d9534f;
+}
+
+.message-box.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #3c763d;
+}
+
+#contact-form .btn-primary {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+/* =========================================
+   Спеціальні стилі для карток (Figma Design)
+   ========================================= */
+
+/* Горизонтальні картки (Why Choose Our App) */
+.horizontal-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+}
+.horizontal-card .card-icon {
+    width: 65px;
+    height: 65px;
+    background-color: #e8e8e8;
+    margin: 0; /* Відміняємо старий margin */
+    flex-shrink: 0;
+}
+.horizontal-card .card-text h3 {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+.horizontal-card .card-text p {
+    text-align: left;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* Високі картки (Features Included) */
+.feature-card {
+    padding: 0; /* Прибираємо стандартний відступ картки */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.feature-image {
+    background-color: #ececec;
+    height: 250px; /* Висота сірого блоку */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #d0d0d0;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #333;
+}
+.feature-placeholder {
+    color: #666;
+    font-size: 0.85rem;
+}
+.feature-info {
+    padding: 20px;
+    background-color: #fff;
+}
+.feature-info .feature-subtitle {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+}
+.feature-info h3 {
+    text-align: left;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
