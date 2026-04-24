@@ -9,7 +9,7 @@ const HomeView = () => `
         <div class="container">
             <h1>Boost Your Productivity</h1>
             <p>Manage your tasks effortlessly, keep track of your progress, and achieve your goals with our intuitive task manager.</p>
-            <a href="/contact" class="btn-primary" data-link>Try for Free</a>
+            <a href="/pract-5-spa-module/contact" class="btn-primary" data-link>Try for Free</a>
         </div>
     </section>
 
@@ -124,15 +124,15 @@ const ContactView = (requests) => `
 // --- Логіка відображення ---
 
 const routes = {
-    '/': HomeView,
-    '/about': AboutView,
-    '/contact': ContactView
+    '/pract-5-spa-module/': HomeView,
+    '/pract-5-spa-module/about': AboutView,
+    '/pract-5-spa-module/contact': ContactView
 };
 
 const render = () => {
     const appContainer = document.getElementById('app');
-    // Визначаємо поточний вигляд, або повертаємо на головну, якщо маршрут не знайдено
-    const view = routes[state.currentPage] || routes['/'];
+    // Якщо маршрут не знайдено, малюємо Home
+    const view = routes[state.currentPage] || routes['/pract-5-spa-module/'];
     
     // Рендеримо HTML, передаючи дані стану у компонент
     appContainer.innerHTML = view(state.requests);
